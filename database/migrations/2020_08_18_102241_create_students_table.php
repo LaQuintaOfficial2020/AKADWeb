@@ -15,17 +15,17 @@ class CreateStudentsTable extends Migration
     {
         Schema::create('students', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('fname',50);
-            $table->string('lname',50);
-            $table->string('studid',20);
+            $table->string('fname',255);
+            $table->string('lname',255);
+            $table->string('studId',255);
             $table->integer('overAllPoints');
             $table->integer('pointsBal');
             $table->integer('pointsUsed');
-            $table->string('bday');
-            $table->unsignedBigInteger('user_id');
+            $table->string('bDay');
+            $table->unsignedBigInteger('userId');
 
             $table->timestamps();
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('userId')->references('id')->on('users');
         });
     }
 
