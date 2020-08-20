@@ -1,0 +1,83 @@
+
+/* ------------------------------------*/
+/* BASIC SETUP */
+/* ------------------------------------*/
+
+
+* {
+    margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+html,
+body {
+	font-family: Arial, "Sans-serif";
+
+}
+
+/* ------------------------------------*/
+/* SIGN UP */
+/* ------------------------------------*/
+
+
+header {
+    height: 110px;
+    background: #C4C4C4;
+    width: 100%;
+    line-height: 110px;
+    padding: 0 0 0 29px;
+}
+
+.header-text {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 47px;
+    line-height: 55px;
+    letter-spacing: 0.15em;
+    vertical-align: middle;
+}
+
+.signup-form {
+    width: 60%;
+}
+
+.signup-header-text {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 37px;
+    line-height: 43px;
+    text-align: center;
+    display: block;
+    margin-bottom: 30px;
+}
+
+.sign-up-div {
+	max-width: 690px;
+    margin: 0 auto;
+    border: 1px solid rgba(0, 0, 0, 0.29);
+    border-radius: 8px;
+    margin-top: 20px;
+    padding-top: 25px;
+}
+
+.signupSubmit {
+    border: 1px solid #C6C6C6;
+    border-radius: 7px;
+    background-color: #fff;
+    padding: 6px;
+    width: 45%;
+    margin-top: 20px;
+}
+
+
+
+
+
+
+
+
+
+
+
+

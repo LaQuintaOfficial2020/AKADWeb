@@ -24,3 +24,7 @@ Route::get('/', function () {
 Route::get('/AvatarCreation', function () {
     return view('AvatarCreation');
 });
+
+Route::get('/signup', function () {
+    return view('signup');
+});
