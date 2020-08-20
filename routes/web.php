@@ -18,3 +18,7 @@ Route::get('/', function () {
 Route::post('auth/login', function(){
     return view('welcome');
 });
+
+Route::get('/AvatarCreation', function () {
+    return view('AvatarCreation');
+});
