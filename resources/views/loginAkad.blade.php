@@ -13,7 +13,7 @@
         <section class="container-fluid">
             <section class="row justify-content-center">
                 <section class="col-12 col-sm-6 col-md-3">
-                {{ Form::open(array('url' => 'auth/login','method'=>'post')) }}
+                    {{ Form::open(array('url' => 'auth/login','method'=>'post','class' => 'form-container')) }}
                 <!-- <form class="form-container"> -->
                         <h4 class="text-center signInLabel">Sign In</h4>    
                         <div class="form-group emailGroup">
@@ -28,7 +28,7 @@
                         <div class="col-sm-12 text-center">
                             <button type="submit" class="btn btn-default btn-sm">Let's Get Started</button>
                          </div>
-                        {{ Form::close() }}
+                    {{ Form::close() }}
                 </section>
             </section>
         </section>

@@ -21,7 +21,7 @@
                     <a class="navbar-brand" href="#">
                         <h4>AKAD</h4>
                     </a>
-                    <a class="navbar-brand" href="auth/logout">
+                    <a class="navbar-brand" href="{{ url('auth/logout') }}">
                         <h3>Logout</h3>
                     </a>
                 </nav> 

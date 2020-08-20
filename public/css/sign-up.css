@@ -71,6 +71,68 @@ header {
 }
 
 
+/* ------------------------------------*/
+/* DASHBOARD */
+/* ------------------------------------*/
+
+.dashboard-title {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 28px;
+    display: block;
+    margin-bottom: 20px;
+}
+
+.reminder-div {
+    float: right;
+    padding: 30px;
+    width: 80%;
+}
+
+.reminder {
+    background-color: #EB7D7D;
+    display: inline-block;
+    width: 200px;
+    height: auto;
+    text-align: center;
+    color: #fff;
+    margin: 0 35px 35px 0;
+    padding: 15px;
+}
+
+.reminder-count {
+    display: block;
+    font-size: 39px;
+    font-style: italic;
+    font-weight: 500;
+    line-height: 46px;
+}
+
+.reminder-text {
+    display: block; /* optional */
+    font-size: 25px; 
+}
+
+.colActivities, .colClassroom {
+/*    display: inline;*/
+}
+
+.classroomTable, .activityTable {
+    border: 1px solid #EBEBEB;
+    width: 89%;
+    display: inline-block;
+    vertical-align: top;
+    padding: 30px 10px;
+    margin: 0 0 35px 0;
+}
+
+.table-title {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 21px;
+    line-height: 25px;
+}
 
 
 

@@ -103,14 +103,14 @@ class LoginController extends Controller
 			Session::flash('flash_error','Wrong email/password!');
 
 			//return Response::json(array('success' => false));
-			dd($credentials);
+			// dd($credentials);
 			return redirect()->back()->with('flash_error','Wrong email/password!');
 		}
 		
 		
 		Session::flash('flash_message','Logged in!');
 		session(['email' =>  $request->get('email')]); 
-
+ 
 
 		// Log::info('*******Logged IN *********'.Input::get('username'));
 		return view('dashboard');

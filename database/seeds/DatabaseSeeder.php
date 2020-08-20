@@ -13,12 +13,14 @@ class DatabaseSeeder extends Seeder
     {
         DB::table('users')->insert([
             'email' => 'teacher@gmail.com',
-            'password' => Hash::make('teacherTest')
+            'password' => Hash::make('teacherTest'),
+            'api_token' => Str::random(60)
         ]);
 
         DB::table('users')->insert([
             'email' => 'student@gmail.com',
-            'password' => Hash::make('studentTest')
+            'password' => Hash::make('studentTest'),
+            'api_token' => Str::random(60)
         ]);
 
         $this->call([
