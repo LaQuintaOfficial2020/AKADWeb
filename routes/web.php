@@ -12,9 +12,13 @@
 */
 
 Route::get('/', function () {
-    return view('login');
+    return view('loginAkad');
 });
 
 Route::post('auth/login', function(){
-    return view('welcome');
+    return view('dashboard');
+});
+
+Route::get('/AvatarCreation', function () {
+    return view('AvatarCreation');
 });
