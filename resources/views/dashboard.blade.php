@@ -1,10 +1,10 @@
 @extends('layout.app')
 @section('main_content')
-{{-- @include('avatar') --}}
+@include('avatar')
   {{-- add role checker whether user is student or teacher --}}
 
   {{-- student side --}}
-  <main class="col-12">
+  <main class="col">
     <div class="row justify-content-left mt-2">
       <div class="col-10">
         <div class="card">

@@ -14,4 +14,10 @@ $(function () {
     $(".exam-body").slimScroll({
         height: "800px !important",
     });
+
+    $(".table-activities").slimScroll({
+        height: "250px !important",
+    });
+
+    console.log($(".table-activities").length);
 });
