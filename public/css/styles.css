@@ -1,0 +1,53 @@
+html,
+body,
+.row {
+    height: 100%;
+    min-height: 100%;
+}
+
+.sb-nav-fixed {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1030;
+}
+
+.side-nav {
+    padding-right: 0;
+}
+
+.sidenav-header {
+    text-align: center;
+}
+
+.classid {
+    font-size: 14px;
+    position: relative;
+    bottom: 8px;
+    font-style: italic;
+    font-weight: bold;
+}
+
+.classid,
+.classsec {
+    color: #b1b1b1;
+}
+
+.side-nav ul li a {
+    color: #fff;
+    font-weight: 400;
+}
+/* 
+.side-nav ul li a, .side-nav .li{
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid rgb(161, 161, 161);
+} */
+
+.side-nav ul li a {
+    margin-left: 15px;
+}
+
+.side-nav ul li.active {
+    background-color: #6495ed;
+}
