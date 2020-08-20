@@ -19,7 +19,7 @@ class StudentsSeeder extends Seeder
             'overAllPoints' => 10,
             'pointsBal' => 6,
             'pointsUsed' => 4,
-            'user_id' => 2
+            'userId' => 2
         ]);
     }
 }

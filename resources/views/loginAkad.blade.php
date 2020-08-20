@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>Login Akda</title>
+        <title>Login Akad</title>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
          <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
          <link rel="stylesheet" type="text/css" href="css/global_login.css">
@@ -13,21 +13,22 @@
         <section class="container-fluid">
             <section class="row justify-content-center">
                 <section class="col-12 col-sm-6 col-md-3">
-                    <form class="form-container">
+                {{ Form::open(array('url' => 'auth/login','method'=>'post')) }}
+                <!-- <form class="form-container"> -->
                         <h4 class="text-center signInLabel">Sign In</h4>    
                         <div class="form-group emailGroup">
                           <label for="inputEmail1">Email</label>
-                          <input type="email" class="form-control" id="inputEmail1" aria-describedby="emailHelp">
+                          <input type="email" id='email' name='email' class="form-control" id="inputEmail1" aria-describedby="emailHelp">
                         </div>
                         <div class="form-group passwordGroup">
                           <label for="inputPassword1">Password</label>
-                          <input type="password" class="form-control" id="inputPassword1">
+                          <input type="password" class="form-control" id="password" name='password'>
                         </div>
                         </div>
                         <div class="col-sm-12 text-center">
                             <button type="submit" class="btn btn-default btn-sm">Let's Get Started</button>
                          </div>
-                    </form>
+                        {{ Form::close() }}
                 </section>
             </section>
         </section>

@@ -16,7 +16,7 @@ class TeachersSeeder extends Seeder
             'lname' => 'test',
             'bday' => '10/09/1997',
             'empid' => 'abc1123',
-            'user_id' => 1
+            'userId' => 1
         ]);
     }
 }

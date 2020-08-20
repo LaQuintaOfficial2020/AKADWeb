@@ -17,9 +17,12 @@ Route::get('/', function () {
     return view('loginAkad');
 });
 
-Route::post('auth/login', function(){
-    return view('dashboard');
+Route::group(['middleware' => ['auth']], function() {
+    Route::get('/dashboard', function(){
+        return view('dashboard');
+    });
 });
+
 
 Route::get('/AvatarCreation', function () {
     return view('AvatarCreation');

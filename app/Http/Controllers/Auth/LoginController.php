@@ -14,7 +14,7 @@ use Log;
 use Response;
 use Illuminate\Http\Request;
 use Session;
-use Illuminate\Support\Facades\Input;
+// use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
@@ -57,7 +57,7 @@ class LoginController extends Controller
 	 */
 	protected function validator(array $data)
 	{
-		return Validator::make(Input::all(), [
+		return Validator::make($request->all(), [
 			'email' => 'required|max:255|email',
 			'password' => 'required|min:3|confirmed',
 		]);
@@ -91,8 +91,8 @@ class LoginController extends Controller
 	{
 
 		$credentials = [
-			'email' => Input::get('email'),
-			'password' => Input::get('password'),
+			'email' => $request->get('email'),
+			'password' => $request->get('password'),
 		];
 
 
@@ -103,16 +103,17 @@ class LoginController extends Controller
 			Session::flash('flash_error','Wrong email/password!');
 
 			//return Response::json(array('success' => false));
-			return redirect()->back();
+			dd($credentials);
+			return redirect()->back()->with('flash_error','Wrong email/password!');
 		}
 		
 		
 		Session::flash('flash_message','Logged in!');
-		session(['email' =>  Input::get('email')]); 
+		session(['email' =>  $request->get('email')]); 
 
 
 		// Log::info('*******Logged IN *********'.Input::get('username'));
-		return redirect('/welcome');
+		return view('dashboard');
 	
 		
 		//return Response::json(array('success' => true));      
