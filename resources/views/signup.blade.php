@@ -21,7 +21,7 @@
     
     
     <div class="sign-up-div d-flex justify-content-center align-items-center">
-        
+    {{ Form::open(array('url' => 'signup/store','method'=>'post','class' => 'form-container')) }}
         <form method="" action="#" class="signup-form justify-content-center">
         
             <span class="signup-header-text "> SIGN UP </span>
@@ -29,20 +29,24 @@
             <div class="form-row">
                 <div class="form-group col">
                     <label for="inputFirstName">First Name</label>    
-                    <input type="text" id="inputFirstName" class="input-field form-control" required>
+                    <input type="text" id="inputFirstName" name="fname" class="input-field form-control" required>
                 </div>
                 <div class="form-group col">
                     <label for="inputLastName">Last Name</label>    
-                    <input type="text" id="inputLastName" class="form-control" required>
+                    <input type="text" id="inputLastName" name="lname" class="form-control" required>
                 </div>
             </div>
             <div class="form-group">
                 <label for="inputEmail">Email</label>    
-                <input type="email" id="inputEmail" class="form-control" required>
+                <input type="email" id="inputEmail" name="email" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <input type="radio" name="userType" value="Teacher" checked>Teacher
+                <input type="radio" name="userType" value="Student">Student
             </div>
             <div class="form-group">
                 <label for="inputPassword">Password</label>    
-                <input type="password" id="inputPassword" class="form-control" required>
+                <input type="password" id="inputPassword" name="password" class="form-control" required>
             </div>
             <div class="form-group">
                 <label for="inputConfirmPassword">Confirm Password</label>    

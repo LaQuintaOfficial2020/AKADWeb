@@ -27,5 +27,20 @@ class DatabaseSeeder extends Seeder
             TeachersSeeder::class,
             StudentsSeeder::class
         ]);
+
+        DB::table('classrooms')->insert([
+            'id' => 1,
+            'className' => 'test class',
+            'maxStudents' => 40,
+            'semester' => '1',
+            'schoolYear' => '2020',
+            'dateFrom' => '01/01/2020',
+            'dateTo' => '21/09/2020',
+            'status' => 'active'
+        ]);
+        DB::table('class_details')->insert([
+            'studId' => 1,
+            'classId' => 1,
+        ]);
     }
 }

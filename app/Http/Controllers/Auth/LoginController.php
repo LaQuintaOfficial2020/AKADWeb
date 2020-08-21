@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 use App\User;
+use App\Teachers;
+use App\Students;
 use Validator;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
@@ -94,25 +96,31 @@ class LoginController extends Controller
 			'email' => $request->get('email'),
 			'password' => $request->get('password'),
 		];
-
-
-
    
 		if(!Auth::attempt($credentials))
 		{
 			Session::flash('flash_error','Wrong email/password!');
-
-			//return Response::json(array('success' => false));
-			// dd($credentials);
 			return redirect()->back()->with('flash_error','Wrong email/password!');
 		}
 		
 		
 		Session::flash('flash_message','Logged in!');
-		session(['email' =>  $request->get('email')]); 
- 
-
-		// Log::info('*******Logged IN *********'.Input::get('username'));
+		$user = User::where('email',$request->get('email'))->get();
+		$userInfo = (Teachers::where('userId',$user[0]->id)->count()==1 ? 
+					Teachers::where('userId',$user[0]->id)->get() : 
+					Students::where('userId',$user[0]->id)->get());
+		$classData = DB::table('classrooms')
+				->join('class_details','class_details.classId','=','classrooms.id')
+				->join('students','class_details.studId','=','students.id')
+				->select([
+					'classrooms.className'
+				])
+				->where('status','=','active')
+				->where('students.id','=',$userInfo[0]->id)
+				->get();
+				// dd($classData[0]->className);
+		session(['email' =>  $request->get('email'),'userId' => $user[0]->id,'userInfo'=>$userInfo,'className'=>$classData[0]->className]); 
+	
 		return view('dashboard');
 	
 		

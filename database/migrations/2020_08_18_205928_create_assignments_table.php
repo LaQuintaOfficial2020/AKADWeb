@@ -16,8 +16,9 @@ class CreateAssignmentsTable extends Migration
         Schema::create('assignments', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name',255);
-            $table->integer('totalPoints');
-            $table->string('dueDate');
+            // $table->integer('totalPoints');
+            // $table->string('dueDate');
+            $table->integer('items');
 
             $table->timestamps();
             $table->softDeletes();
