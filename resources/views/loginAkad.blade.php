@@ -13,21 +13,32 @@
         <section class="container-fluid">
             <section class="row justify-content-center">
                 <section class="col-12 col-sm-6 col-md-3">
-                    <form class="form-container">
+                @if(Session::has('flash_message'))
+                    <div class="alert alert-success">{{Session::get('flash_message')}}</div>
+                @endif
+
+                @if(Session::has('flash_error'))
+                    <div class="alert alert-danger">{{Session::get('flash_error')}}</div>
+                @endif
+                    {{ Form::open(array('url' => 'auth/login','method'=>'post','class' => 'form-container')) }}
+                <!-- <form class="form-container"> -->
                         <h4 class="text-center signInLabel">Sign In</h4>    
                         <div class="form-group emailGroup">
                           <label for="inputEmail1">Email</label>
-                          <input type="email" class="form-control" id="inputEmail1" aria-describedby="emailHelp">
+                          <input type="email" id='email' name='email' class="form-control" id="inputEmail1" aria-describedby="emailHelp">
                         </div>
                         <div class="form-group passwordGroup">
                           <label for="inputPassword1">Password</label>
-                          <input type="password" class="form-control" id="inputPassword1">
+                          <input type="password" class="form-control" id="password" name='password'>
                         </div>
                         </div>
                         <div class="col-sm-12 text-center">
                             <button type="submit" class="btn btn-default btn-sm">Let's Get Started</button>
+                        </div>
+                        <div class="col-sm-12 text-center">
+                            <a href="{{url('signup')}}">Signup</a>
                          </div>
-                    </form>
+                    {{ Form::close() }}
                 </section>
             </section>
         </section>

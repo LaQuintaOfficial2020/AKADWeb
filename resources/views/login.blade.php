@@ -85,7 +85,7 @@
                 </div>
 
                 <div class="links">
-                {{ Form::open(array('url' => 'auth/login')) }}
+                {{ Form::open(array('url' => 'auth/login','method'=>'post')) }}
                     <table>
                         <tr>
                             <td>Email</td>

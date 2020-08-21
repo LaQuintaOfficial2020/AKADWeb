@@ -18,8 +18,11 @@
           <body class="sb-nav-fixed">
             <header>
                 <nav class="navbar navbar-light bg-light">
-                    <a class="navbar-brand" href="#">
+                    <a class="navbar-brand" href="/dashboard">
                         <h4>AKAD</h4>
+                    </a>
+                    <a class="navbar-brand" href="{{ url('auth/logout') }}">
+                        <h3>Logout</h3>
                     </a>
                 </nav> 
             </header>
@@ -32,9 +35,11 @@
                 <nav class="col-2 bg-dark side-nav">
                     <div class="sidebar-sticky" style="color: #FFF; ">
                         <div class="sidenav-header p-3 mt-3">
-                            <h5 class="user-name">Dejarlo, Ma. Jessawin Monica</h5>
+                        @if(session()->has('userInfo'))
+                            <h5 class="user-name">{{Session::get('userInfo')[0]->fname}} {{Session::get('userInfo')[0]->lname}}</h5>
+                        @endif
                             <p class="classid">2014-199999</p>
-                            <p class="classsec mt-2">III - FORTITUDE</p>
+                            <p class="classsec mt-2">{{Session::get('className')}}</p>
                         </div>
                         <ul class="nav flex-column">
                             <li class="nav-item active">
@@ -43,21 +48,21 @@
                             <li>
                                 <ul>
                                     <li class="nav nav-item">
-                                        <a href="#" class="nav-link">Profile</a>
+                                        <a href="{{ url('profile') }}" class="nav-link">Profile</a>
                                     </li>
                                     <li class="nav nav-item">
-                                        <a href="#" class="nav-link">Activities</a>
+                                        <a href="{{ url('activities') }}" class="nav-link">Activities</a>
                                     </li>
-                                    <li class="nav nav-item">
-                                        <a href="#" class="nav-link">Topics</a>
-                                    </li>
+                                    <!-- <li class="nav nav-item">
+                                        <a href="{{-- url('topics') --}}" class="nav-link">Topics</a>
+                                    </li> -->
                                 </ul>
                             </li>
-                            <li class="nav-item">
+                            <!-- <li class="nav-item">
                                 <a href="#" class="nav-link">Calendar of Activities</a>
-                            </li>
+                            </li> -->
                             <li class="nav-item">
-                                <a href="#" class="nav-link">Manage Avatar</a>
+                                <a href="/AvatarCreation" class="nav-link">Manage Avatar</a>
                             </li>
                             <li class="nav-item">
                                 <a href="#" class="nav-link">Account</a>

@@ -9,33 +9,33 @@
       <div class="col-7">        
         <div class="form-row">
             <div class="form-group col-4" >
-              <label for="first-name">First Name</label>
-              <input type="text" class="form-control input-sm" id="first-name">
+              <label for="fName">First Name</label>
+              <input type="text" class="form-control input-sm" id="fName" value="{{$student[0]->fname}}" readonly>
             </div>
             <div class="form-group col-4">
-              <label for="first-name">Last Name</label>
-              <input type="text" class="form-control input-sm" id="first-name">
+              <label for="lName">Last Name</label>
+              <input type="text" class="form-control input-sm" id="lName" value="{{$student[0]->lname}}" readonly>
             </div>
-            <div class="form-group col-4">
+            <!-- <div class="form-group col-4">
               <label for="first-name">Nickname</label>
               <input type="text" class="form-control input-sm" id="first-name">
-            </div>
+            </div> -->
         </div>
         <div class="form-row">
             <div class="form-group col-6" >
-              <label for="student-number">Student Number</label>
-              <input type="text" class="form-control input-sm" id="student-number">
+              <label for="studId">Student Number</label>
+              <input type="text" class="form-control input-sm" id="studId" value="{{$student[0]->studId}}" readonly>
             </div>
             <div class="form-group col-6">
-              <label for="birthdate">Birthdate</label>
-              <input type="text" class="form-control input-sm" id="birthdate">
+              <label for="bday">Birthdate</label>
+              <input type="text" class="form-control input-sm" id="bday" value="{{$student[0]->bDay}}" readonly>
             </div>
         </div>
       </div>
       <div class="col-3">
         <div class="card">
           <div class="card-body">
-            <h4 class="text-center">100</h4>
+            <h4 class="text-center">{{$student[0]->overAllPoints}}</h4>
             <h5 class="text-center">Total Rewards Earned</h5>
           </div>
         </div>
@@ -56,10 +56,10 @@
           <div class="tab-pane fade show active" id="overall-activities" role="tabpanel" aria-labelledby="overall-activities-tab">
             <div class="form-row">
                 <div class="form-group col-3">
-                  <label for="first-name">Semester</label>
-                  <input type="text" class="form-control input-sm" id="first-name">
+                <label for="first-name">Semester</label>
+                  <input type="text" class="form-control input-sm" id="first-name" value="{{$classDetail[0]->semester}}" readonly>
                 </div>
-                <div class="form-group col-3">
+                <!-- <div class="form-group col-3">
                   <label for="category">Category</label>
                   <select class="form-control input-sm" id="category">
                     <option selected>Category</option>
@@ -67,38 +67,43 @@
                     <option value="2">Two</option>
                     <option value="3">Three</option>
                   </select>
-                </div>
+                </div> -->
             </div>
             <div class="form-row">
               <div class="form-group col-3">
                 <label for="date-from">Date From</label>
-                <input type="date" class="form-control input-sm" id="date-from">
+                <input type="date" class="form-control input-sm" id="date-from" value="{{date('d-m-Y',strtotime($classDetail[0]->dateFrom))}}">
               </div>
               <div class="form-group col-3">
                 <label for="date-from">Date From</label>
-                <input type="date" class="form-control input-sm" id="date-from">
+                <input type="date" class="form-control input-sm" id="date-from" value="{{$classDetail[0]->dateTo}}">
               </div>
             </div>
             <div class="table-activities" style="height: 600px !important;">
               <table class="table table-bordered">
                 <tr>
                   <th>Names</th>
-                  <th>Catgeory</th>
+                  <th>Category</th>
                   <th>Items</th>
                   <th>Grade</th>
                   <th>Date Taken</th>
                   <th>Action</th>
                 </tr>
-                @for($i=1; $i<=10;$i++)
+                @foreach($activities as $x)
                 <tr>
-                  <td>Exam {{$i}}</td>
-                  <td>Quiz</td>
+                  <td>Exam </td>
+                  <td>{{$x->quizType}}</td>
                   <td>10</td>
-                  <td>A</td>
-                  <td>Aug 11 2020 1:00:23</td>
-                  <td><button class="btn btn-primary mr-1" type="button">Show</button><button class="btn btn-primary mr-1" type="button">View</button></td>
+                  <td>{{$x->totalPoints}}</td>
+                  <td>{{$x->dateTaken}}</td>
+                  <td>
+                    @if($x->dateTaken != '')
+                    <button class="btn btn-primary mr-1" type="button">Show</button>
+                    @else
+                    <button class="btn btn-primary mr-1" type="button">Take</button></td>
+                    @endif
                 </tr>
-                @endfor
+                @endforeach
               </table>
             </div>
           </div>
