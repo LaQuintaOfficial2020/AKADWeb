@@ -1,5 +1,12 @@
 @extends('layout.app')
 @section('main_content')
+<<<<<<< HEAD
+@include('avatar')
+  {{-- add role checker whether user is student or teacher --}}
+
+  {{-- student side --}}
+  <main class="col">
+=======
     
     <div class="reminder-div">
         <span class="dashboard-title">Dashboard</span>
@@ -298,6 +305,7 @@
 
   {{-- student side --}}
   <main class="col-12">
+>>>>>>> 49c00977e821f02611809fee1180d85d36cd8874
     <div class="row justify-content-left mt-2">
       <div class="col-10">
         <div class="card">
