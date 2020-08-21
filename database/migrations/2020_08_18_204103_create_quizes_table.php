@@ -15,7 +15,9 @@ class CreateQuizesTable extends Migration
     {
         Schema::create('quizes', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('totalPoints');
+            // $table->integer('totalPoints');
+            $table->string('name');
+            $table->integer('items');
             
             $table->timestamps();
             $table->softDeletes();

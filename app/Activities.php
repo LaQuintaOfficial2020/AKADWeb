@@ -6,5 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Activities extends Model
 {
-    //
+    protected $fillable = [
+        'id', 'name', 'studId', 'teacherId', 'quizId'
+    ];   
 }

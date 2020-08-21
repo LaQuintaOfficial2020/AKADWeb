@@ -13,7 +13,14 @@
         <section class="container-fluid">
             <section class="row justify-content-center">
                 <section class="col-12 col-sm-6 col-md-3">
-                {{ Form::open(array('url' => 'auth/login','method'=>'post')) }}
+                @if(Session::has('flash_message'))
+                    <div class="alert alert-success">{{Session::get('flash_message')}}</div>
+                @endif
+
+                @if(Session::has('flash_error'))
+                    <div class="alert alert-danger">{{Session::get('flash_error')}}</div>
+                @endif
+                    {{ Form::open(array('url' => 'auth/login','method'=>'post','class' => 'form-container')) }}
                 <!-- <form class="form-container"> -->
                         <h4 class="text-center signInLabel">Sign In</h4>    
                         <div class="form-group emailGroup">
@@ -27,8 +34,11 @@
                         </div>
                         <div class="col-sm-12 text-center">
                             <button type="submit" class="btn btn-default btn-sm">Let's Get Started</button>
+                        </div>
+                        <div class="col-sm-12 text-center">
+                            <a href="{{url('signup')}}">Signup</a>
                          </div>
-                        {{ Form::close() }}
+                    {{ Form::close() }}
                 </section>
             </section>
         </section>

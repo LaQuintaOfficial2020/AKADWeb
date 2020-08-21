@@ -21,13 +21,17 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('/dashboard', function(){
         return view('dashboard');
     });
+    Route::resource('/profile','ProfileController');
+    Route::resource('/activities','ActivitiesController');
+    Route::resource('/topics','TopicsController');
 });
 
 
 Route::get('/AvatarCreation', function () {
-    return view('AvatarCreation');
+    return view('AvatarCreation'); 
 });
 
 Route::get('/signup', function () {
     return view('signup');
 });
+Route::post('signup/store','HomeController@signup');

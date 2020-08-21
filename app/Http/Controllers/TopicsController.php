@@ -2,12 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Activities;
+use App\Topics;
 use Illuminate\Http\Request;
-use Session;
-use DB;
 
-class ActivitiesController extends Controller
+class TopicsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,16 +14,8 @@ class ActivitiesController extends Controller
      */
     public function index()
     {
-        // $count =   DB::
-        // $activities = Activities::where('studId', Session::get('userInfo')[0]->id)->get();
-        $activities = DB::table('activities as a')
-                    ->select([
-                        'a.id','studId','teacherId','name','duration',
-                        DB::raw('(select count(*) from questions q where q.quizId = a.quizId)as items' ),
-                        // DB::raw('(select sum()) as score')                   
-                    ])
-                    ->where('a.studId',Session::get('userInfo')[0]->id)->get();
-        return view('activitiesOverview',['activities'=>$activities]);
+        //
+        return view('topicsOverview');
     }
 
     /**
@@ -52,10 +42,10 @@ class ActivitiesController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Activities  $activities
+     * @param  \App\Topics  $topics
      * @return \Illuminate\Http\Response
      */
-    public function show(Activities $activities)
+    public function show(Topics $topics)
     {
         //
     }
@@ -63,10 +53,10 @@ class ActivitiesController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Activities  $activities
+     * @param  \App\Topics  $topics
      * @return \Illuminate\Http\Response
      */
-    public function edit(Activities $activities)
+    public function edit(Topics $topics)
     {
         //
     }
@@ -75,10 +65,10 @@ class ActivitiesController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Activities  $activities
+     * @param  \App\Topics  $topics
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Activities $activities)
+    public function update(Request $request, Topics $topics)
     {
         //
     }
@@ -86,10 +76,10 @@ class ActivitiesController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Activities  $activities
+     * @param  \App\Topics  $topics
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Activities $activities)
+    public function destroy(Topics $topics)
     {
         //
     }

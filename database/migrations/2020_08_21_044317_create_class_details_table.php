@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateSeatworksTable extends Migration
+class CreateClassDetailsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,14 @@ class CreateSeatworksTable extends Migration
      */
     public function up()
     {
-        Schema::create('seatworks', function (Blueprint $table) {
+        Schema::create('class_details', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name',255);
-            // $table->integer('totalPoints');
-            $table->integer('items');
+            $table->unsignedBigInteger('studId');
+            $table->unsignedBigInteger('classId');
             $table->timestamps();
+
+            $table->foreign('studId')->references('id')->on('students');
+            $table->foreign('classId')->references('id')->on('classrooms');
         });
     }
 
@@ -29,6 +31,6 @@ class CreateSeatworksTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('seatworks');
+        Schema::dropIfExists('class_details');
     }
 }
