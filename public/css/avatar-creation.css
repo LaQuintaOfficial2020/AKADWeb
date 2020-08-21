@@ -1,0 +1,75 @@
+body {
+    background:#ffffff;
+    padding-top: 25vh;
+}
+.btn {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+}
+.btn-sm{
+    width: 75%;
+}
+.btn-default{
+    background: #ffffff;
+    color: #000000;
+    border-color: #a6a2a2;
+}
+.btn-default:hover{
+    background: #1b2fe2;
+    color: #ffffff;
+}
+.navbar {
+    background: #C4C4C4;
+    height: 4rem;
+}
+.akadLabel{
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 30px;
+    line-height: 55px;
+    letter-spacing: 0.15em;
+}
+.my-container{
+ 
+}
+.my-row{
+    height: 400px;
+}
+.my-row-assets{
+    height: 400px;
+}
+.my-row-avatar{
+    height: 250px;
+}
+.my-col{
+    border: 3px solid #808080;
+}
+.btnRow{
+    margin-top:101px;
+}
+#backBtn{
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 15px;
+    line-height: 10px;
+}
+#goBtn{
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 15px;
+    line-height: 10px;
+}
+.dialogBoxMsg1{
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+}
+.dialogBoxMsg2{
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;  
+}
