@@ -20,8 +20,7 @@ body {
 /* SIGN UP */
 /* ------------------------------------*/
 
-
-header {
+/* header {
     height: 110px;
     background: #C4C4C4;
     width: 100%;
@@ -36,7 +35,7 @@ header {
     line-height: 55px;
     letter-spacing: 0.15em;
     vertical-align: middle;
-}
+} */
 
 .signup-form {
     width: 60%;
@@ -87,7 +86,9 @@ header {
 .reminder-div {
     float: right;
     padding: 30px;
-    width: 80%;
+    width: 100%;
+    overflow: scroll;
+    height: 100vh;
 }
 
 .reminder {
