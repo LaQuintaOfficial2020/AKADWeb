@@ -13,6 +13,7 @@
             <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
             <link rel="stylesheet" href="/css/styles.css">
+            <link rel="stylesheet" href="/css/sign-up.css">
 
         </head>
           <body class="sb-nav-fixed">
@@ -100,6 +101,7 @@
 
             <script type="text/javascript" src="/js/jquery.slimscroll.min.js"></script>
             <script type="text/javascript" src="/js/script.js"></script>
+            <script type="text/javascript" src="/js/dashboard-js.js"></script>
 
 </body>
 </html>
