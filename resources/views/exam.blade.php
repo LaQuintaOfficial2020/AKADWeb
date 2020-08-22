@@ -3,30 +3,34 @@
 @section('main_content')
 @php $user = 1 @endphp
   {{-- add role checker whether user is student or teacher --}}
-
+  {{ Form::open(array('url' => 'exam/checker','method'=>'post')) }}
   <main class="col take-exam">
     <div class="row justify-content-center mt-2" style="margin-top: 30px;">
       <div class="col-7">
         <div class="exam-body" style="height:800px; !important; ">
-          @for($i = 1; $i <= 10; $i++)
+        <input type="hidden" name="count" value="{{$count}}">
+        <input type="hidden" name="id" value="{{$id}}">
+          @foreach($both as $x)
         <div class="card mt-3">
           <div class="card-body">
-            <p class="mb-1" style="font-size: 15px; margin:0;">{{$i}}. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eaque voluptatem reiciendis in repellendus minus voluptatibus, enim velit quibusdam dignissimos maxime maiores facilis, eius sapiente ex culpa id est odio nam?</p>
+            <p class="mb-1" style="font-size: 15px; margin:0;">{{$x['question']->question}}</p>
             </p>
             <div class="row justify-content-center">
+              @foreach($x['choices'] as $item)
               <div class="form-check" style="display: inline-block;">
-                <input class="form-check-input" type="radio" name="" id="1" value="option1" checked>
-                <label class="form-check-label" for="1">
-                  A. Default radio
+                <input class="form-check-input" type="radio" name="{{$loop->parent->index}}" id="{{$item->id}}" value="{{$item->id}}">
+                <label class="form-check-label" for="{{$item-> id}}">
+                  {{$item->answer}} &nbsp;
                 </label>
               </div>
-              <div class="form-check ml-3" style="display: inline-block;">
+              @endforeach
+              <!-- <div class="form-check ml-3" style="display: inline-block;">
                 <input class="form-check-input" type="radio" name="" id="0" value="option1">
                 <label class="form-check-label" for="1">
                   A. Default radio
                 </label>
-              </div>
-              <div class="form-check ml-3" style="display: inline-block;">
+              </div> -->
+              <!-- <div class="form-check ml-3" style="display: inline-block;">
                 <input class="form-check-input" type="radio" name="" id="0" value="option1">
                 <label class="form-check-label" for="1">
                   A. Default radio
@@ -37,11 +41,11 @@
                 <label class="form-check-label" for="1">
                   A. Default radio
                 </label>
-              </div>
+              </div> -->
             </div>
           </div>
         </div>
-        @endfor
+        @endforeach
         </div>
       </div>
       <div class="col-3 mt-3">
@@ -90,9 +94,10 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-        <button type="button" class="btn btn-primary">Yes, I am sure</button>
+        <button type="submit" class="btn btn-primary">Yes, I am sure</button>
       </div>
     </div>
   </div>
 </div>
+{{ Form::open(array('url' => 'auth/login','method'=>'post')) }}
 @endsection

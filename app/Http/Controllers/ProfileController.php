@@ -23,13 +23,14 @@ class ProfileController extends Controller
                     ->select([
                         '*',
                         DB::raw('(Case
-                            WHEN quizId != null THEN "Quiz"
+                            WHEN quizId != null OR quizId != "" THEN "Quiz"
                             ELSE "Seatwork"
                             END
                         ) as quizType')
                     ])
-                    ->where('studId',Session::get('userId'))
+                    ->where('studId',Session::get('userInfo')[0]->id)
                     ->get();
+                    // dd(Session::all());
         $classDetail = DB::table('classrooms')
                         ->join('class_details','class_details.classId','=','classrooms.id')
                         ->join('students','class_details.studId','=','students.id')

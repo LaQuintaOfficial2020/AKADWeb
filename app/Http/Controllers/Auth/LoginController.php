@@ -86,7 +86,7 @@ class LoginController extends Controller
 		$request->session()->forget('id');
 		$request->session()->forget('email');
 		auth()->logout();
-		return redirect('/')->with('flash_error','Successfully logged out!');
+		return redirect('/')->with('flash_message','Successfully logged out!');
 	}
 
 	public function authenticate(Request $request)
@@ -121,7 +121,7 @@ class LoginController extends Controller
 				// dd($classData[0]->className);
 		session(['email' =>  $request->get('email'),'userId' => $user[0]->id,'userInfo'=>$userInfo,'className'=>$classData[0]->className]); 
 	
-		return view('dashboard');
+		return view('dashboard',['flash_message'=>'Welcome! Your login was successful']);
 	
 		
 		//return Response::json(array('success' => true));      

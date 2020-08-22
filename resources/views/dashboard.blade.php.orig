@@ -1,14 +1,14 @@
 @extends('layout.app')
 @section('main_content')
+<<<<<<< HEAD
+@include('avatar')
+  {{-- add role checker whether user is student or teacher --}}
+
+  {{-- student side --}}
+  <main class="col">
+=======
     
     <div class="reminder-div">
-        @if(Session::has('flash_message'))
-            <div class="alert alert-success">{{Session::get('flash_message')}}</div>
-        @endif
-
-        @if(Session::has('flash_error'))
-            <div class="alert alert-danger">{{Session::get('flash_error')}}</div>
-        @endif
         <span class="dashboard-title">Dashboard</span>
         <div class="row">   
             
@@ -305,11 +305,7 @@
 
   {{-- student side --}}
   <main class="col-12">
-@include('avatar')
-  {{-- add role checker whether user is student or teacher --}}
-
-  {{-- student side --}}
-  <main class="col">
+>>>>>>> 49c00977e821f02611809fee1180d85d36cd8874
     <div class="row justify-content-left mt-2">
       <div class="col-10">
         <div class="card">
