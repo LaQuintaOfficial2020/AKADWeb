@@ -14,50 +14,56 @@
 </head>
 <body>
 
-    <header>
-        <span class="header-text"> AKAD </span>
+    <nav class="navbar navbar-light bg-light fixed-top">
+        <h4 class="akadLabel">AKAD</h4>
+    </nav>
     
-    </header>
-    
-    
-    <div class="sign-up-div d-flex justify-content-center align-items-center">
+
+    <div class="sign-up-div row justify-content-center">
     {{ Form::open(array('url' => 'signup/store','method'=>'post','class' => 'form-container')) }}
-        <form method="" action="#" class="signup-form justify-content-center">
-        
-            <span class="signup-header-text "> SIGN UP </span>
+       <div class="col-10">
+        <form method="" action="#">
+           <div class="card">
+                <div class="card-body">
+                    <h3 class="text-center">Sign Up</h3>
             
-            <div class="form-row">
-                <div class="form-group col">
-                    <label for="inputFirstName">First Name</label>    
-                    <input type="text" id="inputFirstName" name="fname" class="input-field form-control" required>
+                    <div class="form-row">
+                        <div class="form-group col">
+                            <label for="inputFirstName">First Name</label>    
+                            <input type="text" id="inputFirstName" name="fname" class="input-field form-control" required>
+                        </div>
+                        <div class="form-group col">
+                            <label for="inputLastName">Last Name</label>    
+                            <input type="text" id="inputLastName" name="lname" class="form-control" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputEmail">Email</label>    
+                        <input type="email" id="inputEmail" name="email" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="radio" name="userType" value="Teacher" checked>Teacher
+                        <input type="radio" name="userType" value="Student">Student
+                    </div>
+                    <div class="form-group">
+                        <label for="inputPassword">Password</label>    
+                        <input type="password" id="inputPassword" name="password" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputConfirmPassword">Confirm Password</label>    
+                        <input type="password" id="inputConfirmPassword" class="form-control" required>
+                    </div>
+                    <div class="form-group text-center">
+                        <button type="submit" class="signupSubmit">Sign Up</button>
+                    </div>
+                    <div class="col-sm-12 text-center mt-4">
+                        <a href="{{url('loginAkad')}}">Log In</a>
+                    </div>
                 </div>
-                <div class="form-group col">
-                    <label for="inputLastName">Last Name</label>    
-                    <input type="text" id="inputLastName" name="lname" class="form-control" required>
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="inputEmail">Email</label>    
-                <input type="email" id="inputEmail" name="email" class="form-control" required>
-            </div>
-            <div class="form-group">
-                <input type="radio" name="userType" value="Teacher" checked>Teacher
-                <input type="radio" name="userType" value="Student">Student
-            </div>
-            <div class="form-group">
-                <label for="inputPassword">Password</label>    
-                <input type="password" id="inputPassword" name="password" class="form-control" required>
-            </div>
-            <div class="form-group">
-                <label for="inputConfirmPassword">Confirm Password</label>    
-                <input type="password" id="inputConfirmPassword" class="form-control" required>
-            </div>
-            <div class="form-group text-center">
-                <button type="submit" class="signupSubmit">Let's get started</button>
-            </div>
-            
+           </div>
         
         </form>
+       </div>
     
     </div>
     

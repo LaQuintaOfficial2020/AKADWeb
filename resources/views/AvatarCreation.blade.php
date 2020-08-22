@@ -16,8 +16,8 @@
 
     </head>
     <body>
-        <nav class="navbar navbar-expand-lg fixed-top">
-            <h3 class="akadLabel">AKAD</h3>
+        <nav class="navbar navbar-light bg-light fixed-top">
+            <h4 class="akadLabel">AKAD</h4>
         </nav>
         <div class="container avatar-creation my-container" style="position: relative; top: -70px;">
             @yield('avatar')

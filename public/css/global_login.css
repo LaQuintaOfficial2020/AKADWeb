@@ -1,6 +1,5 @@
 body {
     background:#ffffff;
-    padding-top: 25vh;
 }
 form{
     background: #fff;
@@ -8,14 +7,14 @@ form{
 .form-container{
     border-radius: 5px;
     padding: 35px; 
-    box-shadow: 0px 0px 10px 0px;
+    /* box-shadow: 0px 0px 10px 0px; */
     height: 25rem;
     max-height: auto;
     font-family: Roboto;
     font-style: normal;
     font-weight: normal;
     font-size: 18px;
-    line-height: 10px;
+    /* line-height: 10px; */
 
 color: rgba(14, 14, 14, 0.7);
 }
