@@ -48,9 +48,9 @@
           <li class="nav-item">
             <a class="nav-link active" id="overall-activities-tab" data-toggle="tab" href="#overall-activities" role="tab" aria-controls="overall-activities" aria-selected="true">Overall Activities</a>
           </li>
-          <li class="nav-item">
+          <!-- <li class="nav-item">
             <a class="nav-link" id="semestral-grade-tab" data-toggle="tab" href="#semestral-grade" role="tab" aria-controls="semestral-grade" aria-selected="true">Semestral Grade</a>
-          </li>
+          </li> -->
         </ul>
         <div class="tab-content p-2">
           <div class="tab-pane fade show active" id="overall-activities" role="tabpanel" aria-labelledby="overall-activities-tab">
@@ -98,16 +98,20 @@
                   <td>{{$x->dateTaken}}</td>
                   <td>
                     @if($x->dateTaken != '')
-                    <button class="btn btn-primary mr-1" type="button">Show</button>
+                    <!-- <button class="btn btn-primary mr-1" type="button">Show</button> -->
                     @else
-                    <button class="btn btn-primary mr-1" type="button">Take</button></td>
+                      @if($x->quizType=='Quiz')
+                        <a class="btn btn-primary mr-1" type="button" href="{{url('/exam/'.$x->quizId.'/take')}}">Take Quiz</a></td>
+                      @else
+                        <a class="btn btn-primary mr-1" type="button" href="{{url('/seatwork/'.$x->seatWorkId.'/take')}}">Take Seatwork</a></td>
+                      @endif
                     @endif
                 </tr>
                 @endforeach
               </table>
             </div>
           </div>
-          <div class="tab-pane fade" id="semestral-grade" role="tabpanel" aria-labelledby="semestral-grade-tab">
+          <!-- <div class="tab-pane fade" id="semestral-grade" role="tabpanel" aria-labelledby="semestral-grade-tab">
             <table class="table table-bordered">
               <tr>
                 <th>Names</th>
@@ -128,7 +132,7 @@
               </tr>
               @endfor
             </table>
-          </div>
+          </div> -->
         </div>
 
       </div>

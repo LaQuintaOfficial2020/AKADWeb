@@ -24,6 +24,9 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource('/profile','ProfileController');
     Route::resource('/activities','ActivitiesController');
     Route::resource('/topics','TopicsController');
+    Route::get('/exam/{id}/take','QuizesController@index');
+    Route::get('/seatwork/{id}/take','SeatWorksController@index');
+    Route::post('/exam/checker','QuizesController@checker');
 });
 
 

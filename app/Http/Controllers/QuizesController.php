@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Quizes;
 use Illuminate\Http\Request;
 
+use DB;
 class QuizesController extends Controller
 {
     /**
@@ -12,9 +13,52 @@ class QuizesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($id)
     {
-        //
+        $both = array();
+        $questions = DB::table('questions')
+            ->where('quizId',$id)
+            ->get()
+            ->shuffle();
+
+        foreach($questions as $x){
+            $data = $both;
+            $answers = DB::table('answers')
+            ->where('questionId',$x->id)
+            ->get()
+            ->shuffle();
+
+            array_push($both,["question"=>$x,"choices"=>$answers]);
+        }
+
+        return view('exam',['both'=>$both,'count'=>count($questions),'id'=>$id]);
+    }
+
+    public function checker(Request $request){
+        // $questions = DB::table('questions')
+        //     ->where('quizId',$id)
+        //     ->get();
+        // $shuffled = $questions->shuffle();
+        // dd($request);
+        $count = 0;
+        // dd($request['answer'."'".0."'"]);
+        for($i=0;$i<$request->count;$i++){
+            $res= DB::table('answers')
+                        ->select('point')
+                        ->where('id',$request->input($i))
+                        ->get();
+
+            $count += $res[0]->point;
+        }
+        // dd(date('Y-m-d'));
+        DB::table('student_activities')
+            ->where('quizId',$request['id'])
+            ->update([
+                'status'=> 'done',
+                'totalPoints' => $count,
+                'dateTaken' => "".date('Y-m-d')
+            ]);
+        return view('dashboard',['flash_message'=>'Exam submission success! Thank you for you hardwork!']);
     }
 
     /**
@@ -27,6 +71,13 @@ class QuizesController extends Controller
         //
     }
 
+    private function randomizeQuestion($question){
+        // $newList = 
+    }
+
+    private function randomizeChoices(){
+
+    }
     /**
      * Store a newly created resource in storage.
      *

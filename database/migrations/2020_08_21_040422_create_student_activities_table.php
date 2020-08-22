@@ -18,7 +18,7 @@ class CreateStudentActivitiesTable extends Migration
             $table->unsignedBigInteger('quizId')->nullable();
             $table->unsignedBigInteger('seatWorkId')->nullable();
             $table->unsignedBigInteger('studId');
-            $table->string('dateTaken');
+            $table->string('dateTaken')->nullable();
             $table->enum('status',['not done','done','passed','failed']);
             $table->string('duration');
             $table->string('dueDate');

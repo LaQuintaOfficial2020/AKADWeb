@@ -9,6 +9,7 @@ use App\Teachers;
 use App\Students;
 
 use Session;
+use DB;
 use Illuminate\Support\Facades\Auth;
 class ApiController extends Controller
 {
@@ -21,23 +22,67 @@ class ApiController extends Controller
     {
         //
     }
+
+    public function checker(Request $request){
+        $user = User::where('api_token',substr($request->header('Authorization'),7))->get();
+            // dd(substr($request->header('Authorization'),7));
+            // dd($user[0]->id);
+            $count = Teachers::where('userId',$user[0]->id)->count();
+            if($count<1){
+                $userDetails = DB::table('users')
+                            ->join('students','students.userId','=','users.id')
+                            ->select([
+                                'email', 'email_verified_at','api_token','hairId','bodyId',
+                                'headId','eyesId','noseId','lipsId','students.*'
+                            ])
+                            ->where('email',$user[0]->email)
+                            ->get();
+            }else{
+                $userDetails = DB::table('users')
+                            ->join('teachers','teachers.userId','=','users.id')
+                            ->select([
+                                'email', 'email_verified','api_token','hairId','bodyId',
+                                'headId','eyesId','noseId','lipsId','teachers.*'
+                            ])
+                            ->where('email',$user[0]->email)
+                            ->get();
+            }
+            return response()->json(['user' => $userDetails[0]], 200); 
+    }
     public function login(Request $request){ 
             $credentials = [
-                'email' => $request->get('email'),
-                'password' => $request->get('password'),
+                'email' => $request['email'],
+                'password' => $request['password'],
             ];
-            $user = User::where('email',$request->get('email'))->get();
             
-            $count = Teachers::where('userId',$user[0]->id)->count();
-            // return response()->json(['count'=>$count]);
-            $userInfo = ($count < 1 ? Students::where('userId',$user[0]->id)->get() : Teachers::where('userId',$user[0]->id)->get());
-       
+            $user = User::where('email',$request['email'])->get();
+            
+            // $count = Teachers::where('userId',$user[0]->id)->count();
+            // if($count<1){
+            //     $userDetails = DB::table('users')
+            //                 ->join('students','students.userId','=','users.id')
+            //                 ->select([
+            //                     'email', 'email_verified_at','api_token','hairId','bodyId',
+            //                     'headId','eyesId','noseId','lipsId','students.*'
+            //                 ])
+            //                 ->where('email',$request['email'])
+            //                 ->get();
+            // }else{
+            //     $userDetails = DB::table('users')
+            //                 ->join('teachers','teachers.userId','=','users.id')
+            //                 ->select([
+            //                     'email', 'email_verified','api_token','hairId','bodyId',
+            //                     'headId','eyesId','noseId','lipsId','teachers.*'
+            //                 ])
+            //                 ->where('email',$request['email'])
+            //                 ->get();
+            // }
             if(Auth::attempt($credentials))
             {
-                return response()->json(['success' => $user,'userInfo' => $userInfo], 200); 
+                return response()->json(['api_token' => $user[0]->api_token], 200); 
             } 
             else{ 
-                return response()->json(['error'=>'Incorrect Username or Password'], 400); 
+                return response()->json(['error'=>'Incorrect Username or Password'], 401); 
             } 
     }
 

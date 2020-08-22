@@ -14,10 +14,18 @@ use Illuminate\Http\Request;
 */
 
 // Route::post('api/login', '');
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+Route::middleware('auth:api')->get('/user', 'ApiController@checker')->name('user'); 
+
+Route::post('/login', 'ApiController@login');
+
+Route::group(['middleware' =>'auth:api'], function(){
+    Route::get('/activities','Api\ProfileController@getActivities')->name('activities');
 });
-Route::middleware('auth:api')->post('/login', 'ApiController@login');
+
+Route::get('/unAuthenticated',function(){
+    return response()->json(['error'=> 'no active user'],401);
+})->name('unAuthenticated');
+
 // Route::group(['middleware' => 'cors'], function() {
 //     Route::post('login', 'ApiController@login');
 // });
