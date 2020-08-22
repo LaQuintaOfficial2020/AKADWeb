@@ -15,15 +15,15 @@ class CreateTeachersTable extends Migration
     {
         Schema::create('teachers', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('fname',50);
-            $table->string('lname',50);
-            $table->string('empid',20);
-            $table->string('bday');
-            $table->unsignedBigInteger('user_id');
+            $table->string('fName',255);
+            $table->string('lName',255);
+            $table->string('empId',255);
+            $table->string('bDay');
+            $table->unsignedBigInteger('userId');
             $table->timestamps();
             $table->softDeletes();
 
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('userId')->references('id')->on('users');
         });
     }
 

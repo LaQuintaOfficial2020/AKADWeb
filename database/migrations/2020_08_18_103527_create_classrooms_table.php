@@ -15,8 +15,13 @@ class CreateClassroomsTable extends Migration
     {
         Schema::create('classrooms', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('className');
+            $table->string('className',255);
             $table->integer('maxStudents');
+            $table->string('semester');
+            $table->string('schoolYear');
+            $table->string('dateFrom');
+            $table->string('dateTo');
+            $table->enum('status',['active','passed','failed']);
             $table->timestamps();
         });
     }
