@@ -100,6 +100,7 @@
 
             <script type="text/javascript" src="/js/jquery.slimscroll.min.js"></script>
             <script type="text/javascript" src="/js/script.js"></script>
+            <script src="/js/avatarScript.js"></script>
 
 </body>
 </html>

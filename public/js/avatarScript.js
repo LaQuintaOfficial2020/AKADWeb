@@ -1,7 +1,6 @@
 $(function(){
   var avatarMod = function(){
     this.init();
-    console.log('jaksd');
   };
 
   var avatarAssets = {
@@ -84,8 +83,17 @@ $(function(){
 
 avatarMod.prototype = {
   init: function(){
-    this.loadSample();
-    // For future implementation ; 
+    // this.loadSample();
+    // For future implementation ;
+    if (!$('.avatar-creation').length){
+      $('.asset-tab').hide();
+      $('.footer-buttons').hide();
+      $('.avatar-container').removeClass('col-5').addClass('col');
+    }else{
+      $('.asset-tab').show();
+      $('.footer-buttons').show();
+      $('.avatar-container').removeClass('col').addClass('col-5');
+    }
   },
 
   loadSample: function(){
